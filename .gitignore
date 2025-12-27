@@ -1,0 +1,71 @@
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+obj/
+[Bb]uilds/
+UserSettings/
+MemoryCaptures/
+
+# Visual Studio / Rider / VS Code
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Unity generated files
+sysinfo.txt
+*.pidb.meta
+*.log
+
+# Unity Cache Server
+*.cache
+
+# Node / TypeScript
+node_modules/
+dist/
+.env
+
+# Builds
+*.apk
+*.aab
+*.exe
+*.app
+
+# Misc
+*.tgz
+*.zip
+
+# Ignore nested Unity "My project" folders' Library directory specifically
+**/Library/
+**/Temp/
+**/Logs/
+**/Obj/
+
+# Ignore Unity Test Results
+TestResults/
+
+# User-specific files
+*.swp
+*.DS_Store
+
+# Keep git from warning about line endings (Windows)
+# core.autocrlf=true recommended for Windows users
