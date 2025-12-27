@@ -36,6 +36,19 @@ The client-side project is organized as follows:
 ## Networking
 The game utilizes a client-server architecture for multiplayer functionality. The `NetworkManager` handles connections and player synchronization.
 
+### Mirror features implemented in this project
+- Transport selector (Telepathy / KCP / WebSocket) using `NetworkTransportSelector`.
+- Server-authoritative movement with `PlayerNetworkTransform` (SyncVar server position, unreliable channel, interpolation).
+- Interest management via `NetworkProximityChecker` to limit observers by proximity.
+- Latency & packet-loss simulation and batching controls via `NetworkLatencyUI`.
+- WebSocket test harness is available to test the Node authoritative server.
+
+### Quick tips
+- Switch transports at runtime with the `NetworkTransportSelector` UI in the scene.
+- Attach `NetworkProximityChecker` to any networked object that should only be visible to nearby players.
+- Use `NetworkLatencyUI` to experiment with latency, packet loss and send interval for client-side prediction and server reconciliation tests.
+
+
 ## Contribution
 Feel free to contribute to the project by submitting issues or pull requests. For any questions, please contact the project maintainers.
 
