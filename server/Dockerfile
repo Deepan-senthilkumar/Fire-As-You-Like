@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Install deps
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
 # Copy rest and build
 COPY . .
@@ -20,7 +20,7 @@ COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
 
 # Install production deps
-RUN npm ci --only=production
+RUN npm install --omit=dev
 
 EXPOSE 8080
 
