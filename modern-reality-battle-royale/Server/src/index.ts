@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import { initializeGame } from './game';
@@ -11,7 +11,7 @@ const io = new Server(server);
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
     res.send('Welcome to the Modern Reality Battle Royale Server!');
 });
 
