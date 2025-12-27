@@ -2,11 +2,15 @@ name: Build and publish server Docker image
 
 on:
   push:
-    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,7 +31,9 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v4
         with:
-          context: ./server
+          context: ./modern-reality-battle-royale/Server
           file: ./server/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/modern-reality-battle-royale-server:latest
+          tags: |
+            ghcr.io/deepan-senthilkumar/modern-reality-battle-royale-server:latest
+            ghcr.io/deepan-senthilkumar/modern-reality-battle-royale-server:${{ github.sha }}

@@ -12,9 +12,11 @@ spec:
       labels:
         app: mrbr-server
     spec:
+      imagePullSecrets:
+        - name: ghcr
       containers:
         - name: server
-          image: ghcr.io/<owner>/modern-reality-battle-royale-server:latest
+          image: ghcr.io/deepan-senthilkumar/modern-reality-battle-royale-server:latest
           ports:
             - containerPort: 8080
           resources:

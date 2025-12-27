@@ -5,9 +5,11 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: ghcr
       containers:
         - name: server
-          image: ghcr.io/<owner>/modern-reality-battle-royale-server:latest
+          image: ghcr.io/deepan-senthilkumar/modern-reality-battle-royale-server:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: default
