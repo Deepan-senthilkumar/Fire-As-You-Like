@@ -1,7 +1,7 @@
 # Build local Docker image and run it (Windows PowerShell)
 $tag = "mrbr-server:local"
 Write-Output "Building image $tag..."
-docker build -t $tag -f ./server/Dockerfile ./modern-reality-battle-royale/Server
+docker build -t $tag ./modern-reality-battle-royale/Server
 
 Write-Output "Running container (map port 8080)..."
 docker run -p 8080:8080 --rm $tag

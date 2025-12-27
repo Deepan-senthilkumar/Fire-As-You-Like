@@ -32,7 +32,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./modern-reality-battle-royale/Server
-          file: ./server/Dockerfile
+          file: ./modern-reality-battle-royale/Server/Dockerfile
           push: true
           tags: |
             ghcr.io/deepan-senthilkumar/modern-reality-battle-royale-server:latest
