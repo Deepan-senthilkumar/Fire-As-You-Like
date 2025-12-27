@@ -36,6 +36,12 @@ To set up the project locally, follow these steps:
 4. **Open the Game**:
    Open the `Main.unity` scene in Unity to start developing and testing the game.
 
+## Deployment & CI
+- Server Dockerfile and local run script available at `server/Dockerfile` and `scripts/run-server-docker.ps1`.
+- GitHub Actions workflow builds and pushes server image to GHCR: `.github/workflows/docker-image.yml`.
+- Kubernetes manifests and Agones example are available under `infra/`.
+
+
 ## Documentation
 For more detailed information on the design and networking architecture, please refer to the following documents in the `Docs` directory:
 - [DESIGN.md](Docs/DESIGN.md)

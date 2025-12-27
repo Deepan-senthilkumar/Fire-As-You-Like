@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mrbr-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mrbr-server
+  template:
+    metadata:
+      labels:
+        app: mrbr-server
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/<owner>/modern-reality-battle-royale-server:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mrbr-server
+spec:
+  type: LoadBalancer
+  selector:
+    app: mrbr-server
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: mrbr-server-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: mrbr-server
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60

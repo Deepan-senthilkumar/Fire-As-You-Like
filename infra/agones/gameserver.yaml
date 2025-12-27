@@ -1,0 +1,16 @@
+apiVersion: "agones.dev/v1"
+kind: GameServer
+metadata:
+  name: mrbr-gameserver
+spec:
+  template:
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/<owner>/modern-reality-battle-royale-server:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: default
+              containerPort: 8080
+              protocol: TCP
+  # tuning: health, min/priority etc. can be added as needed
