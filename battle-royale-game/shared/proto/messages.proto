@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package battle_royale;
+
+message Player {
+    string id = 1;
+    string name = 2;
+    int32 health = 3;
+    int32 ammo = 4;
+    repeated string inventory = 5;
+}
+
+message Match {
+    string match_id = 1;
+    repeated Player players = 2;
+    string status = 3; // e.g., "waiting", "in_progress", "finished"
+}
+
+message GameEvent {
+    enum EventType {
+        PLAYER_JOINED = 0;
+        PLAYER_LEFT = 1;
+        PLAYER_DIED = 2;
+        ITEM_PICKED = 3;
+    }
+    EventType event_type = 1;
+    string player_id = 2;
+    string match_id = 3;
+    string item_id = 4; // Optional, for ITEM_PICKED event
+}
+
+message ChatMessage {
+    string sender_id = 1;
+    string match_id = 2;
+    string content = 3;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "battle-royale-game-server",
+  "version": "1.0.0",
+  "description": "Server for the Battle Royale Game",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.4.6",
+    "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.6",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/battle-royale-game.git"
+  },
+  "keywords": [
+    "battle-royale",
+    "game",
+    "server"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
